@@ -1,0 +1,25 @@
+name: Run Playwright Scraper
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  scrape-and-sum:
+    name: Scraper Run by 23f3000971@ds.study.iitm.ac.in
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20'
+
+    - name: Install Dependencies
+      run: npm install
+
+    - name: Run Scraper
+      run: npm start
